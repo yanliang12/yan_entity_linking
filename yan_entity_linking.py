@@ -4,11 +4,15 @@ import re
 import time
 import requests
 
-print('loading the entity linking models')
-os.system(u"""
-	java -Xmx3000m -jar dexter-2.1.0.jar &
-	""")
-time.sleep(30)
+def start_entity_linker(
+	dexter_folder = '.',
+	):
+	print('loading the entity linking models')
+	os.system(u"""
+		cd {}
+		java -Xmx3000m -jar {}/dexter-2.1.0.jar &
+		""".format(dexter_folder, dexter_folder))
+	time.sleep(30)
 
 def entity_linking(text):
 	try:

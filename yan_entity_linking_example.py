@@ -2,7 +2,13 @@
 
 import yan_entity_linking
 
-o = yan_entity_linking.entity_linking("I study at Heriot-Watt University Dubai, but I live at Abu Dhabi. I want to work at Apple. I was born in China, 1997")
+yan_entity_linking.start_entity_linker(
+	dexter_folder = '/yan/',
+	)
+
+o = yan_entity_linking.entity_linking(
+	"I study at Heriot-Watt University Dubai, but I live at Abu Dhabi. I want to work at Apple. I was born in China, 1997"
+	)
 
 for e in o:
 	print(e)
